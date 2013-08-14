@@ -793,12 +793,12 @@ static struct wpa_ssid * wpa_scan_res_match(struct wpa_supplicant *wpa_s,
 				"mismatch");
 			continue;
 		}
-
+/*
 		if (!bss_is_ess(bss)) {
 			wpa_dbg(wpa_s, MSG_DEBUG, "   skip - not ESS network");
 			continue;
 		}
-
+*/
 		if (!freq_allowed(ssid->freq_list, bss->freq)) {
 			wpa_dbg(wpa_s, MSG_DEBUG, "   skip - frequency not "
 				"allowed");

@@ -2038,12 +2038,6 @@ static int wpa_supplicant_ctrl_iface_scan_result(
 			return -1;
 		pos += ret;
 	}
-	if (bss->caps & IEEE80211_CAP_IBSS) {
-		ret = os_snprintf(pos, end - pos, "[IBSS]");
-		if (ret < 0 || ret >= end - pos)
-			return -1;
-		pos += ret;
-	}
 	if (bss->caps & IEEE80211_CAP_ESS) {
 		ret = os_snprintf(pos, end - pos, "[ESS]");
 		if (ret < 0 || ret >= end - pos)
@@ -3239,12 +3233,6 @@ static int print_bss_info(struct wpa_supplicant *wpa_s, struct wpa_bss *bss,
 		pos = wpa_supplicant_wps_ie_txt(wpa_s, pos, end, bss);
 		if (!ie && !ie2 && bss->caps & IEEE80211_CAP_PRIVACY) {
 			ret = os_snprintf(pos, end - pos, "[WEP]");
-			if (ret < 0 || ret >= end - pos)
-				return 0;
-			pos += ret;
-		}
-		if (bss->caps & IEEE80211_CAP_IBSS) {
-			ret = os_snprintf(pos, end - pos, "[IBSS]");
 			if (ret < 0 || ret >= end - pos)
 				return 0;
 			pos += ret;
