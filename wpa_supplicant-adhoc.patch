@@ -1,0 +1,1 @@
+patch -p1 -N -i wpa_supplicant-adhoc.patch -r - -d ./
